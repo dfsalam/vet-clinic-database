@@ -7,8 +7,7 @@ INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_
 
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered) VALUES (4, 'Devimon', '2017-05-12', 5, true);
 /* Milestone 2 */
-/*Add a column species of type string to your animals table. */
-ALTER TABLE animals ADD COLUMN species TEXT;
+
 /* Insertions */
 INSERT INTO animals VALUES (5, 'Charmander', '2020-02-08', 0, false, -11.0);
 
