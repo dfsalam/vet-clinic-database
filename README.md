@@ -67,7 +67,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Not deployed yet](<replace-with-your-deployment-URL>)
+- Not deployed yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
