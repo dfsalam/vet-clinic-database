@@ -172,13 +172,12 @@ WHERE v.id NOT IN (
   WHERE s.species_id = a.species_id
 );
 -- 9.What specialty should Maisy Smith consider getting? Look for the species she gets the most.
-SELECT s.name AS species, COUNT(*) AS visits
-FROM animals AS a
-JOIN visits AS v ON a.id = v.animals_id
-JOIN vets AS vet ON v.vet_id = vet.id
-JOIN specializations AS spec ON vet.id = spec.vet_id
-JOIN species AS s ON spec.species_id = s.id
-WHERE vet.name = 'Maisy Smith'
-GROUP BY species
-ORDER BY visits DESC
+SELECT species.name, COUNT(*) AS num_visits
+FROM visits
+INNER JOIN animals ON visits.animals_id = animals.id
+INNER JOIN species ON animals.species_id = species.id
+INNER JOIN vets ON visits.vet_id = vets.id
+WHERE vets.name = 'Maisy Smith'
+GROUP BY species.name
+ORDER BY num_visits DESC
 LIMIT 1;
