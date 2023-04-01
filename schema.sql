@@ -50,6 +50,32 @@ ADD CONSTRAINT fk_owner
   FOREIGN KEY (owner_id)
   REFERENCES owners(id);
 
+/* Milestone 4 */
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    age INTEGER,
+    date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+  vet_id INTEGER NOT NULL,
+  species_id INTEGER NOT NULL,
+  PRIMARY KEY (vet_id, species_id),
+  FOREIGN KEY (vet_id) REFERENCES vets(id),
+  FOREIGN KEY (species_id) REFERENCES species(id)
+);
+
+ALTER TABLE animals ADD CONSTRAINT animals_id_unique UNIQUE (id);
+
+CREATE TABLE visits (
+  id SERIAL PRIMARY KEY,
+  animals_id INTEGER REFERENCES animals(id),
+  vet_id INTEGER REFERENCES vets(id),
+  visit_date DATE
+);
+
+
 
 
 
